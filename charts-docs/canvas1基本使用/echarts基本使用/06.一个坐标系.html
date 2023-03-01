@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 引入echarts依赖包 -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.1/echarts.common.js"></script>
+  <style>
+    * {
+      /* 清除默认样式 */
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 准备一个容器 */
+    .dom {
+      width: 800px;
+      height: 400px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- 准备一个容器  -->
+  <div class="dom"></div>
+  <script>
+    // 获取dom
+    let dom = document.querySelector(".dom")
+    // 初始化echarts实例
+    let myCharts = echarts.init(dom)
+    // 设置图表的配置项和数据
+    myCharts.setOption({
+      title: {
+        // 父标题
+        text: "一个坐标系",
+        // 子标题
+        textStyle: {
+          color: 'black'
+        },
+        // 设置标题位置
+        left: 'left'
+      },
+    
+      // x轴数据设置
+      xAxis: {
+        // 点之间等距离化
+       type:"category"
+      },
+      yAxis: {
+        // 显示y轴刻度
+        axisLine: {
+          show: true
+        }
+      },
+      // 设置图表类型，图表数据
+      series: [{
+        // name: '销量',
+        // bar 柱状图  line折线图 pie 饼图  scatter 散点图
+        type: 'scatter',
+        data: [
+          [5, 20],
+          [36, 10],
+          [20, 67],
+          [15, 40],
+          [9, 20],
+        ]
+      }],
+
+    })
+
+  </script>
+
+
+</body>
+
+</html>

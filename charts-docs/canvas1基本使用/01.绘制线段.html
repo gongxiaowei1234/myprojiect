@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- canvas的宽高只能通过canvas标签设置，不能通过style设置 -->
+  <canvas width="600" height="400"></canvas>
+</body>
+<script>
+  // 获取画布
+  let canvas = document.querySelector('canvas');
+  // 获取画布的笔【上下文】getContext()
+  let ctx = canvas.getContext('2d');
+  // 设置笔的颜色
+  ctx.strokeStyle = "PowderBlue"
+  // 设置笔的宽度
+  ctx.lineWidth = '20'
+  // 设置线段起点
+  ctx.moveTo(100, 100);
+  // 设置线段终点
+  ctx.lineTo(100, 200);
+  ctx.lineTo(200, 100);
+  // 设置图形填充颜色
+  ctx.fillStyle = "pink"
+  // 填充
+  ctx.fill()
+  // 设置连接线段起点和最后终点
+  ctx.closePath()
+  //   调用画笔
+  ctx.stroke()
+
+</script>
+
+</html>

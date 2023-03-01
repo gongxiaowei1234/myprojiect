@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 引入echarts依赖包 -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.1/echarts.common.js"></script>
+  <style>
+    * {
+      /* 清除默认样式 */
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 准备一个容器 */
+    div {
+      width: 800px;
+      height: 400px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- 准备一个容器  -->
+  <div class="div1"></div>
+  <div class="div2"></div>
+  
+  <script>
+    // 获取dom
+    let dom1 = document.querySelector(".div1")
+    let dom2 = document.querySelector(".div2")
+    // 初始化echarts实例
+    let myCharts1 = echarts.init(dom1)
+    let myCharts2 = echarts.init(dom2)
+    // 设置图表的配置项和数据
+    myCharts1.setOption({
+      title: {
+        // 父标题
+        text: "数据可视化",
+        // 子标题
+        subtext: "echarts基本使用",
+        // 主标题颜色
+        textStyle: {
+          color: 'black'
+        },
+        // 设置标题位置
+        left: 'center'
+      },
+      tooltip: {},
+      legend: {
+        data: ["销量"],
+        left:"right"
+      },
+      // x轴数据设置
+      xAxis: {
+        data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+      },
+      yAxis: {
+        // 显示y轴刻度
+        axisLine: {
+          show: true
+        }
+      },
+      // 设置图表类型，图表数据
+      series: [{
+        // 数据代表含义
+        name: '销量',
+        // bar 柱状图  line折线图 pie 饼图
+        type: 'bar',
+        data: [5, 20, 36, 10, 15, 20],
+        // color:"syan"
+      }],
+
+    })
+    myCharts2.setOption({
+      title: {
+        // 父标题
+        text: "球类销量",
+        // 子标题
+        subtext: "折线图",
+        // 主标题颜色
+        textStyle: {
+          color: 'black'
+        },
+        // 设置标题位置
+        left: 'center'
+      },
+      tooltip: {},
+      legend: {
+        data: ["销量"],
+        left:"right"
+      },
+      // x轴数据设置
+      xAxis: {
+        data: ['足球', '排球', '羽毛球', '乒乓球', '篮球', '高尔夫球']
+      },
+      yAxis: {
+        // 显示y轴刻度
+        axisLine: {
+          show: true
+        }
+      },
+      // 设置图表类型，图表数据
+      series: [{
+        // 数据代表含义
+        name: '销量',
+        // bar 柱状图  line折线图 pie 饼图
+        type: 'line',
+        data: [10, 5, 36, 10, 15, 20],
+        color:'pink'
+      }],
+
+    })
+
+  </script>
+
+
+</body>
+
+</html>

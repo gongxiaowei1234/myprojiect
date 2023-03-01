@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 引入echarts依赖包 -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.1/echarts.common.js"></script>
+  <style>
+    * {
+      /* 清除默认样式 */
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 准备一个容器 */
+    div {
+      width: 800px;
+      height: 400px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- 准备一个容器  -->
+  <div id="main"></div>
+  <script>
+    // 获取dom
+    let dom = document.querySelector("div")
+    // 初始化echarts实例
+    let myCharts = echarts.init(dom)
+    // 数据集
+    let data = [
+      ["衣服", 40, 5, "x", 30],
+      ["游戏", 12, 10, "y", 40],
+      ["吃饭", 16, 20, "z", 35],
+      ["逛街", 19, 10, "t", 20],
+    ]
+    // 设置图表的配置项和数据
+    myCharts.setOption({
+      // 设置数据集
+      dataset: {
+        // 数据源
+        source: data
+      },
+      title: {
+        // 父标题
+        text: "数据可视化",
+        // 子标题
+        subtext: "echarts基本使用",
+        // 主标题颜色
+        textStyle: {
+          color: 'black'
+        },
+        // 设置标题位置
+        left: 'left'
+      },
+      tooltip: {},
+      // 图例，数据代表含义
+      legend: {
+        data: ["销量"]
+      },
+      // x轴数据设置
+      xAxis: {
+        // 名称和数据集名称保持一致
+        data: ['衣服', '游戏', '吃饭', '逛街'],     
+      },
+      yAxis: {
+        // 显示y轴刻度
+        axisLine: {
+          show: true
+        }
+      },
+      // 设置图表类型，图表数据
+      series: [
+
+        // bar 柱状图  line折线图 pie 饼图
+        {
+          name: '销量',
+          type: 'bar',
+          // data: [5, 20, 36, 10, 15, 20],
+          encode:{y:1}
+        },
+
+        // bar 柱状图  line折线图 pie 饼图
+        {
+          // name: '销量',s
+          type: 'line',
+          // data: [5, 20, 36, 10, 15, 20],
+          color: 'pink',
+          encode:{
+            y:2
+          }
+        },
+        {
+          // name: '销量',s
+          type: 'pie',
+          // data: [{
+          //   name: "足球",
+          //   value: "5"
+          // }, {
+          //   name: "足球",
+          //   value: "20"
+          // }, {
+          //   name: "足球",
+          //   value: "36"
+          // }, {
+          //   name: "足球",
+          //   value: "10"
+          // }, {
+          //   name: "足球",
+          //   value: "15"
+          // },{name:"足球",value:"20"}],
+          // color: 'pink',
+          width: 200,
+          height: 200,
+          left:600,
+          top: 30,
+          radius: 30,
+          encode: {
+            itemName: 3,
+            value: 4
+          }
+
+        }
+      ]
+
+    })
+
+  </script>
+
+
+</body>
+
+</html>

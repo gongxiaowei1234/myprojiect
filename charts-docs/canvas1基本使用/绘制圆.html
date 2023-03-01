@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  canvas {
+    border: 1px solid burlywood;
+   
+  }
+
+</style>
+
+<body>
+  <canvas width="600" height="400"></canvas>
+</body>
+<script>
+  const canvas = document.querySelector("canvas")
+  const ctx = canvas.getContext('2d')
+  // 设置背景颜色
+  ctx.fillStyle = 'pink';
+  ctx.fillRect(0,0,600,400)
+
+  //不关闭路径路径会一直保留下去
+  ctx.closePath();
+  // 设置填充颜色
+  ctx.fillStyle = 'white';
+  ctx.beginPath();
+  ctx.arc(100, 100, 20, 0, Math.PI*2 , true);
+  // 设置阴影颜色
+  ctx.shadowColor="white"
+  // 设置阴影模糊级别
+  ctx.shadowBlur=10
+  // 填充
+  ctx.fill();
+  
+
+//   绘制圆
+ctx.beginPath();
+ctx.arc(400,300,30,0,Math.PI*2,true)
+ctx.closePath();
+ctx.stroke()
+
+</script>
+
+</html>

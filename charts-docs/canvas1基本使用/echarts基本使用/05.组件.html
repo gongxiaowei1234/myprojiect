@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 引入echarts依赖包 -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.1/echarts.common.js"></script>
+  <style>
+    * {
+      /* 清除默认样式 */
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 准备一个容器 */
+    .dom {
+      width: 800px;
+      height: 400px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- 准备一个容器  -->
+  <div class="dom"></div>
+  <script>
+    // 获取dom容器
+    let dom = document.querySelector(".dom")
+    // 初始化echarts实例
+    let myCharts = echarts.init(dom)
+    // 数据集
+    let data = [
+      ["衣服", 40, 5, "x", 30],
+      ["游戏", 12, 10, "y", 40],
+      ["吃饭", 16, 20, "z", 35],
+      ["逛街", 19, 10, "t", 20],
+    ]
+    // 设置图表的配置项和数据
+    myCharts.setOption({
+      // 全局调色盘。
+      // color: [
+      //   '#c23531',
+      //   '#2f4554',
+      //   '#61a0a8',
+      //   '#d48265',
+      //   '#91c7ae',
+      //   '#749f83',
+      //   '#ca8622',
+      //   '#bda29a',
+      //   '#6e7074',
+      //   '#546570',
+      //   '#c4ccd3'
+      // ],
+      // 设置数据集
+      dataset: {
+        // 数据源
+        source: data
+      },
+      title: {
+        // 父标题
+        text: "数据可视化",
+        // 子标题
+        subtext: "echarts基本使用",
+        // 父标题颜色
+        textStyle: {
+          color: 'black'
+        },
+        // 设置标题位置
+        left: 'left'
+      },
+      // x轴数据设置
+      xAxis: {
+        // 名称和数据集名称保持一致
+        data: ['衣服', '游戏', '吃饭', '逛街'],
+      },
+      yAxis: {
+        // 显示y轴刻度
+        axisLine: {
+          show: true
+        }
+      },
+      // 设置图表类型，图表数据
+      series: [
+
+        // bar 柱状图  line折线图 pie 饼图
+        {
+          name: '柱状图',
+          type: 'bar',
+          // data: [5, 20, 36, 10, 15, 20],
+          encode: {
+            y: 1
+          }
+        },
+
+        // bar 柱状图  line折线图 pie 饼图
+        {
+          name: '折线图',
+          type: 'line',
+          // data: [5, 20, 36, 10, 15, 20],
+          color: 'pink',
+          encode: {
+            y: 2
+          }
+        },
+        {
+          name: '饼图',
+          type: 'pie',
+          // data: [{
+          //   name: "足球",
+          //   value: "5"
+          // }, {
+          //   name: "足球",
+          //   value: "20"
+          // }, {
+          //   name: "足球",
+          //   value: "36"
+          // }, {
+          //   name: "足球",
+          //   value: "10"
+          // }, {
+          //   name: "足球",
+          //   value: "15"
+          // },{name:"足球",value:"20"}],
+          // color: 'pink',
+          width: 200,
+          height: 200,
+          left: 600,
+          top: 30,
+          // 半径
+          radius: 30,
+          encode: {
+            itemName: 3,
+            value: 4
+          }
+
+        }
+      ],
+      // 提示组件
+      tooltip: {
+        textStyle: {
+          color: 'pink',
+          fontSize: 12,
+        },
+        // 提示框颜色
+        backgroundColor: '#222',
+      },
+      // 图表切换，数据代表含义
+      legend: {
+        data: ["柱状图", '折线图', '饼图']
+      },
+      //  工具栏组件
+      toolbox: {
+        show: true,
+        feature: {
+          // 区域放大
+          dataZoom: {
+            yAxisIndex: "none"
+          },
+          // 数据查看
+          dataView: {
+            readOnly: false
+          },
+          // 切换图表类型
+          magicType: {
+            type: ["line", "bar"]
+          },
+          // 刷新
+          restore: {},
+          // 保存
+          saveAsImage: {}
+        }
+      },
+      // 区域缩放组件
+      dataZoom: {},
+      // 调整图表布局
+      grid: {
+        // left:30
+      },
+    })
+
+  </script>
+
+
+</body>
+
+</html>

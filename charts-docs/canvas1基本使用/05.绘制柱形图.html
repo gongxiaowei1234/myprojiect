@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  canvas {
+    border: 1px solid burlywood;
+  }
+
+</style>
+
+<body>
+  <canvas width="800" height="500"></canvas>
+</body>
+<script>
+  function draw() {
+    const canvas = document.querySelector("canvas")
+    if (!canvas.getContext) return
+    const ctx = canvas.getContext('2d')
+    // 绘制标题
+    ctx.font = "18px 微软雅黑"
+    ctx.fillStyle = 'black'
+    ctx.fillText('数据可视化-EChart', 20, 30)
+    // 绘制坐标系
+    ctx.moveTo(100, 50)
+    ctx.lineTo(100, 450)
+    ctx.lineTo(700, 450)
+    ctx.stroke()
+    // 绘制线段
+    ctx.lineWidth=0.3
+    ctx.moveTo(100, 50)
+    ctx.lineTo(700,50)
+
+    ctx.moveTo(100, 130)
+    ctx.lineTo(700,130)
+
+    ctx.moveTo(100, 210)
+    ctx.lineTo(700,210)
+
+    ctx.moveTo(100, 290)
+    ctx.lineTo(700,290)
+
+    ctx.moveTo(100, 370)
+    ctx.lineTo(700,370)
+
+    ctx.stroke()
+
+     // 绘制X线段标注
+     
+     ctx.moveTo(100, 50)
+    ctx.lineTo(90,50)
+    ctx.fillText("150",50, 60)
+
+    ctx.moveTo(100, 130)
+    ctx.lineTo(90,130)
+    ctx.fillText("120",50, 140)
+
+    ctx.moveTo(100, 210)
+    ctx.lineTo(90,210)
+    ctx.fillText("90",55, 220)
+
+    ctx.moveTo(100, 290)
+    ctx.lineTo(90,290)
+    ctx.fillText("60",55, 300)
+
+    ctx.moveTo(100, 370)
+    ctx.lineTo(90,370)
+    ctx.fillText("30",55, 380)
+
+    ctx.moveTo(100, 450)
+    ctx.lineTo(90,450)
+    ctx.fillText("0",70, 460)
+
+    // 绘制Y线段标注
+    ctx.moveTo(250, 450)
+    ctx.lineTo(250,460)
+    ctx.fillText("食品",150, 480)
+
+    ctx.moveTo(400, 450)
+    ctx.lineTo(400,460)
+    ctx.fillText("数码",300, 480)
+
+    ctx.moveTo(550, 450)
+    ctx.lineTo(550,460)
+    ctx.fillText("服饰",450, 480)
+
+    ctx.moveTo(700, 450)
+    ctx.lineTo(700,460)
+    ctx.fillText("箱包",600, 480)
+    ctx.stroke()
+
+    // 绘制填充矩形
+    ctx.fillStyle = "pink"
+    ctx.fillRect(125, 190, 100, 260)
+
+    ctx.fillStyle = "pink"
+    ctx.fillRect(275, 128, 100, 320)
+
+    var g1 = ctx.createLinearGradient(100, 200, 70, 380);
+    g1.addColorStop(0, 'pink'); 
+    g1.addColorStop(1, '#5FC3E4');
+    ctx.fillStyle = g1;
+    ctx.fillRect(425, 210, 100, 240)
+    
+    ctx.fillStyle = "pink"
+    ctx.fillRect(575, 50, 100, 400)
+    
+  }
+  draw()
+
+</script>
+
+</html>

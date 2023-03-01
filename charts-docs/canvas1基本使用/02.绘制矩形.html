@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  canvas {
+    border: 1px solid burlywood;
+  }
+
+</style>
+
+<body>
+  <canvas width="600" height="400"></canvas>
+</body>
+<script>
+  const canvas = document.querySelector("canvas")
+  const ctx = canvas.getContext('2d')
+
+  // 第一种绘制线条矩形：
+  // 参数为：x,y,w.h(没有办法设置填充颜色)
+  ctx.strokeStyle="pink"
+  ctx.strokeRect(100, 200, 50, 200)
+
+  // 第二种绘制填充矩形
+  // 设置填充颜色
+  ctx.fillStyle="pink"
+  ctx.fillRect(200, 100, 50, 300)
+
+</script>
+
+</html>
